@@ -3333,7 +3333,8 @@ void SpaceShower::calcUncertainties(bool accept, double pAccept, double pT20in,
 
     // f + fbar -> vector boson.
     if ( (idRes == 23 || abs(idRes) == 24 || idRes == 32
-       || idRes == 33 || abs(idRes) == 34 || abs(idRes) == 41)
+       || idRes == 33 || abs(idRes) == 34 || abs(idRes) == 41
+       || idRes == 4900023)
        && abs(idIn1) < 20 && abs(idIn2) < 20 ) MEtype = 1;
 
     // g + g, gamma + gamma  -> Higgs boson.
