@@ -50,7 +50,7 @@ private:
   // Initialization data, to be read from Settings.
   int    nFlav;
   double probVector;
-
+  bool altHadronSpecies;
 };
 
 //==========================================================================

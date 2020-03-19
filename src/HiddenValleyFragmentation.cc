@@ -29,6 +29,11 @@ void HVStringFlav::init(Settings& settings, ParticleData* particleDataPtrIn,
   // Read in data from Settings.
   nFlav      = settings.mode("HiddenValley:nFlav");
   probVector = settings.parm("HiddenValley:probVector");
+  altHadronSpecies = settings.flag("HiddenValley:altHadronSpecies");
+  if(altHadronSpecies and nFlav!=3){
+    altHadronSpecies = false;
+    infoPtr->errorMsg("Warning in HVStringFlav::init: altHadronSpecies disabled because nFlav!=3");
+  }
 
 }
 
@@ -66,11 +71,23 @@ int HVStringFlav::combine(FlavContainer& flav1, FlavContainer& flav2) {
   if (idPos < 20) idPos = 101;
   if (idNeg < 20) idNeg = 101;
 
-  // Pick HV-meson code, spin either 0 or 1.
-  if (idNeg == idPos)     idMeson =  4900111;
-  else if (idPos > idNeg) idMeson =  4900211;
-  else                    idMeson = -4900211;
-  if (rndmPtr->flat() < probVector) idMeson += ((idMeson > 0) ? 2 : -2);
+  if(altHadronSpecies){
+    if(idNeg==idPos) idMeson = 4900111;
+    else if(idNeg==101 and idPos==102) idMeson = 4900113;
+    else if(idPos==101 and idNeg==102) idMeson = -4900113;
+    else if(idNeg==101 and idPos==103) idMeson = 4900211;
+    else if(idPos==101 and idNeg==103) idMeson = -4900211;
+    else if(idNeg==102 and idPos==103) idMeson = 4900213;
+    else if(idPos==102 and idNeg==103) idMeson = -4900213;
+    else idMeson = 4900111; //default case, should never get here
+  }
+  else {
+    // Pick HV-meson code, spin either 0 or 1.
+    if (idNeg == idPos)     idMeson =  4900111;
+    else if (idPos > idNeg) idMeson =  4900211;
+    else                    idMeson = -4900211;
+    if (rndmPtr->flat() < probVector) idMeson += ((idMeson > 0) ? 2 : -2);
+  }
 
   // Done.
   return idMeson;
