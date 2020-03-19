@@ -272,7 +272,8 @@ bool HiddenValleyFragmentation::extractHVevent(Event& event) {
     int idAbs = event[i].idAbs();
     bool isHV = (idAbs > 4900000 && idAbs < 4900007)
              || (idAbs > 4900010 && idAbs < 4900017)
-             || idAbs == 4900021 || idAbs == 4900101;
+             || idAbs == 4900021
+             || (idAbs > 4900100 && idAbs < 4900109);
     if (isHV) {
       int iHV = hvEvent.append( event[i]);
       // Convert HV-gluons into normal ones so as to use normal machinery.
