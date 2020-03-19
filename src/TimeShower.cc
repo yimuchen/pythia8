@@ -692,7 +692,7 @@ void TimeShower::prepare( int iSys, Event& event, bool limitPTmaxIn) {
       // Find Hidden Valley dipole ends.
       bool isHVrad =  (idRadAbs > 4900000 && idRadAbs < 4900007)
                    || (idRadAbs > 4900010 && idRadAbs < 4900017)
-                   || idRadAbs == 4900101;
+                   || (idRadAbs > 4900100 && idRadAbs < 4900109);
       if (doHVshower && isHVrad) setupHVdip( iSys, i, event, limitPTmaxIn);
 
     // End loop over system final state. Have now found the dipole ends.
@@ -4603,7 +4603,7 @@ int TimeShower::findMEparticle( int id, bool isHiddenColour) {
     int idAbs = abs(id);
     if (  (idAbs > 4900000 && idAbs < 4900007)
        || (idAbs > 4900010 && idAbs < 4900017)
-       || idAbs == 4900101) colType = 1;
+       || (idAbs > 4900100 && idAbs < 4900109) ) colType = 1;
   }
 
   // Find particle type from colour and spin.
