@@ -7,6 +7,7 @@
 // ParticleDecays class.
 
 #include "Pythia8/ParticleDecays.h"
+#include <string>
 
 namespace Pythia8 {
 
@@ -295,7 +296,7 @@ bool ParticleDecays::decay( int iDec, Event& event) {
     } else {
       if (hasStored) event.popBack(mult);
       infoPtr->errorMsg("Error in ParticleDecays::decay: "
-        "failed to find workable decay channel");
+        "failed to find workable decay channel for "+std::to_string(idDec));
       return false;
     }
 
