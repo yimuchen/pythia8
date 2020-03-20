@@ -49,8 +49,8 @@ HiddenValley:spinFv = 0			! Spin of bi-fundamental res.
 4900001:addChannel = 1 0.3333 103 5 4900101
 
 ! define some missing antiparticles
-4900111:antiName = "pivDiagbar"
-4900113:antiName = "rhovDiagbar"
+4900111:antiName = pivDiagbar
+4900113:antiName = rhovDiagbar
 
 ! Model settings
 HiddenValley:Lambda=10.
@@ -68,7 +68,7 @@ HiddenValley:pTminFSR = 11.
 
 ! dark meson decays
 4900111:oneChannel = 1 0.5 102 1 -1 ! neutral pion -> pair of same flavor quarks
-4900111:oneChannel = 1 0.5 102 3 -3 ! neutral pion -> pair of same flavor quarks
+4900111:addChannel = 1 0.5 102 3 -3 ! neutral pion -> pair of same flavor quarks
 4900113:oneChannel = 1 1.0 102 1 -3 ! charged pion -> down + strange
 4900211:oneChannel = 1 1.0 102 1 -5 ! charged kaon -> down + bottom (forbidden)
 4900213:oneChannel = 1 1.0 102 3 -5 ! charged kaon -> strange + bottom (forbidden)
