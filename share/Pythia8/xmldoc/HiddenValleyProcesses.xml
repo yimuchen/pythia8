@@ -152,8 +152,8 @@ off-diagonal Up/Dn mesons.
 This flag changes the dark hadron production to follow <a href="https://arxiv.org/abs/1803.08080">arXiv:1803.08080</a>:<br/>
 4900111: -490010x,490010x (neutral pion)<br/>
 4900113: -4900101,4900102 (charged pion)<br/>
-4900211: -4900101,4900103 (charged kaon)<br/>
-4900213: -4900102,4900103 (neutral kaon)<br/>
+4900211: -4900102,4900103 (neutral kaon)<br/>
+4900213: -4900101,4900103 (charged kaon)<br/>
 This option is only allowed if <ei>nFlav</ei> = 3.<br/>
 This option ignores <ei>probVector</ei> and is not compatible with <ei>doKinMix</ei>.
 </flag> 
