@@ -75,10 +75,10 @@ int HVStringFlav::combine(FlavContainer& flav1, FlavContainer& flav2) {
     if(idNeg==idPos) idMeson = 4900111;
     else if(idNeg==101 and idPos==102) idMeson = 4900113;
     else if(idPos==101 and idNeg==102) idMeson = -4900113;
-    else if(idNeg==101 and idPos==103) idMeson = 4900211;
-    else if(idPos==101 and idNeg==103) idMeson = -4900211;
-    else if(idNeg==102 and idPos==103) idMeson = 4900213;
-    else if(idPos==102 and idNeg==103) idMeson = -4900213;
+    else if(idNeg==102 and idPos==103) idMeson = 4900211;
+    else if(idPos==102 and idNeg==103) idMeson = -4900211;
+    else if(idNeg==101 and idPos==103) idMeson = 4900213;
+    else if(idPos==101 and idNeg==103) idMeson = -4900213;
     else idMeson = 4900111; //default case, should never get here
   }
   else {
