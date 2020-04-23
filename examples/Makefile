@@ -163,6 +163,17 @@ mymain% : mymain%.cc $(PREFIX_LIB)/libpythia8.a
 test% : test%.cc $(PREFIX_LIB)/libpythia8.a
 	$(CXX) $< -o $@ $(CXX_COMMON)
 
+suep_main: $$@.cc suep_shower.cc SuepHook.cc\
+	$(PREFIX_LIB)/libpythia8.a
+ifeq ($(HEPMC2_USE),true)
+	$(CXX) $^ -o $@ -I$(HEPMC2_INCLUDE) $(CXX_COMMON) \
+	-L$(HEPMC2_LIB) -Wl,-rpath,$(HEPMC2_LIB) -lHepMC \
+	-I$(BOOST_INCLUDE) -L$(BOOST_LIB) \
+	$(GZIP_INC) $(GZIP_FLAGS)
+else
+	@echo "Error: $@ requires HEPMC2"
+endif
+
 # Clean.
 clean:
 	@rm -f main[0-9][0-9]; rm -f out[0-9][0-9];\
