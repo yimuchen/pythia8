@@ -18,7 +18,7 @@ installPythia() {
 	LHAPDF_BASE=$(scram tool info lhapdf | grep "LHAPDF_BASE" | sed 's/LHAPDF_BASE=//')
 
 	# get pythia8 source and compile
-	git clone git@github.com:kpedro88/pythia8 -b emg/230
+	git clone git@github.com:kpedro88/pythia8 -b emg/226
 	cd pythia8
 	# configure for c++11 if 7_1_X
 	EXTRA=""
@@ -34,7 +34,7 @@ installPythia() {
 	# create xml for tool
 	cd $CMSSW_BASE
 	cat << 'EOF_TOOLFILE' > pythia8.xml
-<tool name="pythia8" version="230-emg">
+<tool name="pythia8" version="226-emg">
   <lib name="pythia8"/>
   <client>
     <environment name="PYTHIA8_BASE" default="$CMSSW_BASE/pythia8"/>
