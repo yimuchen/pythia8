@@ -295,8 +295,11 @@ bool ParticleDecays::decay( int iDec, Event& event) {
     // Else remove unused daughters and return failure.
     } else {
       if (hasStored) event.popBack(mult);
-      infoPtr->errorMsg("Error in ParticleDecays::decay: "
-        "failed to find workable decay channel for "+std::to_string(idDec));
+      char mesg[256];
+      sprintf(mesg,
+        "Error in ParticleDecays::decay: "
+        "failed to find workable decay channel for %d",idDec);
+      infoPtr->errorMsg(mesg);
       return false;
     }
 
